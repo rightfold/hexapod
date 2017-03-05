@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for file in src/*.dawda; do
+    ../dawd/compiler/bin/dawdc build "$file"
+done

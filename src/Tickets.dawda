@@ -1,0 +1,11 @@
+REPORT Tickets
+
+SET TITLE "Tickets"
+
+SQL TABLE "
+    SELECT id, summary
+    FROM tickets
+    ORDER BY created_at DESC
+"
+
+END REPORT
