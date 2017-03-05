@@ -1,0 +1,20 @@
+ACTION DoNewTicket
+
+PARAMETER id TYPE TEXT
+PARAMETER summary TYPE TEXT
+
+SQL TABLE "
+    INSERT INTO tickets (id, created_at, summary)
+    VALUES ($1, now(), $2)
+"
+ARGUMENTS id, summary
+
+END ACTION
+
+REPORT NewTicket
+
+SET TITLE "New Ticket"
+
+FORM AUTOMATIC APPLICATION DoNewTicket
+
+END REPORT
