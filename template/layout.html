@@ -3,13 +3,154 @@
   <head>
     <meta charset="utf-8">
     <title>{{title}} {{#title}}&mdash;{{/title}} Hexapod</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Raleway:700">
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure,
+      footer, header, hgroup, menu, nav, section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      blockquote, q {
+        quotes: none;
+      }
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+        content: '';
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        height: 100%;
+      }
+
+      .hxp {
+        display: flex;
+        min-height: 100%;
+      }
+
+      .hxp > .-sidebar {
+        background: #42444e;
+        flex: 0 0 240px;
+      }
+
+      .hxp > .-body {
+        flex: 1;
+      }
+
+      .hxp > .-body > .-title {
+        color: #42444e;
+        font-family: 'Raleway', sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 54px;
+        margin: 9px 18px;
+      }
+
+      .hxp > .-body > .-content {
+        margin: 18px;
+      }
+
+      .hxp > .-body > .-content p {
+        line-height: 18px;
+      }
+
+      .hxp > .-body > .-content > table {
+        border: solid 1px #cecfd5;
+        width: 100%;
+      }
+
+      .hxp > .-body > .-content > table > thead > tr {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .hxp > .-body > .-content > table > thead > tr > td,
+      .hxp > .-body > .-content > table > thead > tr > th,
+      .hxp > .-body > .-content > table > tfoot > tr > td,
+      .hxp > .-body > .-content > table > tfoot > tr > th,
+      .hxp > .-body > .-content > table > tbody > tr > td,
+      .hxp > .-body > .-content > table > tbody > tr > th {
+        line-height: 18px;
+        padding: 9px;
+      }
+
+      .hxp > .-body > .-content > table > tbody > tr:nth-child(odd) {
+        background: #eee;
+      }
+
+      .hxp > .-body > .-footer {
+        margin: 18px;
+      }
+
+      .hxp > .-body > .-footer > .-formats > ul {
+        display: inline;
+      }
+
+      .hxp > .-body > .-footer > .-formats > ul > li {
+        display: inline;
+      }
+    </style>
   </head>
   <body>
-    {{&body}}
-    <ul>
-      {{#formats}}
-        <li><a href="{{url}}">{{name}}</a></li>
-      {{/formats}}
-    </ul>
+    <div class="hxp">
+      <div class="-sidebar">
+      </div>
+      <div class="-body">
+        <h1 class="-title">{{title}}</h1>
+        <div class="-content">{{&body}}</div>
+        <div class="-footer">
+          <div class="-formats">
+            This page in other formats:
+            <ul>
+              {{#formats}}
+                <li><a href="{{url}}">{{name}}</a></li>
+              {{/formats}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
