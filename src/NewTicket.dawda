@@ -3,7 +3,7 @@ ACTION DoNewTicket
 PARAMETER id TYPE TEXT
 PARAMETER summary TYPE TEXT
 
-SQL TABLE "
+EXECUTE SQL "
     INSERT INTO tickets (id, created_at, summary)
     VALUES ($1, now(), $2)
 "
